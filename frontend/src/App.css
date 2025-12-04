@@ -62,3 +62,22 @@
 .container {
   align-items: center;
 }
+
+.box:hover {
+  transform: translateY(-3px);
+}
+.box:active {
+  transform: translateY(0);
+}
+
+.box-x {
+  color: #b71c1c; /* red X */
+  background: linear-gradient(180deg, rgba(183,28,28,0.06), rgba(0,0,0,0));
+  text-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.box-o {
+  color: #0d47a1; /* blue O */
+  background: linear-gradient(180deg, rgba(13,71,161,0.04), rgba(0,0,0,0));
+  text-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
