@@ -18,7 +18,7 @@ function App() {
   )
 }
 
-const API_BASE = 'https://tictactoeserver-tvrt.onrender.com/'
+const API_BASE = 'https://tictactoeserver-tvrt.onrender.com'
 
 const TicTacoToe = () => {
   const [game, setGame] = useState<GameState | null>(null)
