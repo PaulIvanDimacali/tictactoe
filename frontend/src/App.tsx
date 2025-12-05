@@ -20,7 +20,7 @@ function App() {
   )
 }
 
-const API_BASE = 'http://localhost:8000'
+const API_BASE = 'https://paulivandimacali.github.io/tictactoe/'
 
 const TicTacoToe = () => {
   const [game, setGame] = useState<GameState | null>(null)
