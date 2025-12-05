@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
+import redCross from './assets/RED-CROSS.png'
+import sirCol from './assets/SIRCOL.png'
 
 type GameState = {
   id:string
@@ -108,7 +110,7 @@ const TicTacoToe = () => {
 
   function renderBox(i: number) {
     const value = game?.board?.[i] ?? ''
-    const emoji = value === 'X' ? '❌' : value === 'O' ? '⭕' : null
+    const img = value === 'X' ? redCross : value === 'O' ? sirCol : null
     return (
       <div
         key={i}
@@ -118,7 +120,7 @@ const TicTacoToe = () => {
         aria-label={`square-${i}`}
         style={{cursor: game && !game.winner && !game.draw ? 'pointer' : 'default'}}
       >
-        {emoji ? <span style={{fontSize: 32}}>{emoji}</span> : value}
+        {img ? <img src={img} alt={value} style={{width: '100%', height: '100%', objectFit: 'contain'}} /> : value}
       </div>
     )
   }
