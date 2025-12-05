@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 
 import './App.css'
-import redCross from './assets/RED CROSS.png'
-import sirCol from './assets/SIRCOL.png'
 
 type GameState = {
   id:string
@@ -20,13 +18,19 @@ function App() {
   )
 }
 
-const API_BASE = 'https://paulivandimacali.github.io/tictactoe/'
+const API_BASE = 'https://tictactoeserver-tvrt.onrender.com/'
 
 const TicTacoToe = () => {
   const [game, setGame] = useState<GameState | null>(null)
 
   useEffect(() => {
-    fetch(`${API_BASE}/hello-world`)
+    ;(async () => {
+      try {
+        await fetch(`${API_BASE}/hello-world`)
+      } catch (err) {
+        console.error('hello-world fetch failed', err)
+      }
+    })()
   }, [])
 
   const startGame = async () => {
@@ -104,7 +108,7 @@ const TicTacoToe = () => {
 
   function renderBox(i: number) {
     const value = game?.board?.[i] ?? ''
-    const img = value === 'X' ? redCross : value === 'O' ? sirCol : null
+    const emoji = value === 'X' ? '❌' : value === 'O' ? '⭕' : null
     return (
       <div
         key={i}
@@ -114,7 +118,7 @@ const TicTacoToe = () => {
         aria-label={`square-${i}`}
         style={{cursor: game && !game.winner && !game.draw ? 'pointer' : 'default'}}
       >
-        {img ? <img src={img} alt={value} style={{width: '100%', height: '100%', objectFit: 'contain'}} /> : value}
+        {emoji ? <span style={{fontSize: 32}}>{emoji}</span> : value}
       </div>
     )
   }
