@@ -23,14 +23,10 @@ function App() {
 const API_BASE = 'http://localhost:8000'
 
 const TicTacoToe = () => {
-  const [msg, setMsg] = useState<string | null>(null)
   const [game, setGame] = useState<GameState | null>(null)
 
   useEffect(() => {
     fetch(`${API_BASE}/hello-world`)
-    .then((res) => res.json())
-    .then((data) => setMsg(data.message))
-    .catch(() => setMsg('Error fetching message from server'))
   }, [])
 
   const startGame = async () => {
@@ -50,15 +46,12 @@ const TicTacoToe = () => {
 
   const handleCellClick = async (index: number) => {
     if (!game) {
-      setMsg('Start a game first!')
       return
     }
     if (game.winner || game.draw) {
-      setMsg('Game over! Start a new game.')
       return
     } 
     if (game.board[index] !== null ) {
-      setMsg('Cell already occupied! Choose another one.')
       return
     }
 
