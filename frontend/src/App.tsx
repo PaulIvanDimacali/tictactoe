@@ -26,7 +26,7 @@ const TicTacoToe = () => {
   useEffect(() => {
     ;(async () => {
       try {
-        await fetch(`${API_BASE}/hello-world`)
+        await fetch(`${API_BASE}hello-world`)
       } catch (err) {
         console.error('hello-world fetch failed', err)
       }
@@ -35,7 +35,7 @@ const TicTacoToe = () => {
 
   const startGame = async () => {
     try {
-      const response = await fetch(`${API_BASE}/games`, {
+      const response = await fetch(`${API_BASE}games`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const TicTacoToe = () => {
     }
 
     try {
-      const response = await fetch(`${API_BASE}/games/${game.id}/moves`, {
+      const response = await fetch(`${API_BASE}games/${game.id}/moves`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
